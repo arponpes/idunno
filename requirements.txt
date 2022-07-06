@@ -6,3 +6,4 @@ requests
 motor
 python-decouple
 pymongo[srv]
+jinja2
