@@ -15,24 +15,10 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-@app.get("/card/")
-async def get_all():
+@app.get("/card/", response_class=HTMLResponse)
+async def get_all(request: Request):
     _cardList = await CardRepo.retrieve()
-    return Response(code=200, status="Ok", message="Success retrieve all data", result=_cardList).dict(
-        exclude_none=True
-    )
-
-
-@app.get("/card/{id}", response_class=HTMLResponse)
-async def get_id(request: Request, id: str):
-    _card = await CardRepo.retrieve_id(id)
-    return templates.TemplateResponse("item.html", {"request": request, "id": id, "card": _card})
-
-
-@app.post("/card/update")
-async def update(card: Card):
-    await CardRepo.update(card.id, card)
-    return Response(code=200, status="Ok", message="Success update data").dict(exclude_none=True)
+    return templates.TemplateResponse("list_of_cards.html", {"request": request, "id": id, "card_list": _cardList})
 
 
 @app.delete("/card/{id}")

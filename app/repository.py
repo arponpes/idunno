@@ -23,14 +23,6 @@ class CardRepo:
         await db.get_collection("card").insert_one(_card)
 
     @staticmethod
-    async def update(id: str, card: Card):
-        _card = await db.get_collection("card").find_one({"_id": id})
-        _card["spanish"] = card.spanish
-        _card["chinese"] = card.chinese
-        _card["pinyin"] = card.pinyin
-        await db.get_collection("card").update_one({"_id": id}, {"$set": _card})
-
-    @staticmethod
     async def retrieve_id(id: str):
         return await db.get_collection("card").find_one({"_id": id})
 

@@ -7,10 +7,15 @@
 
 <body>
     <h1 id="title">Idunno</h1>
+    {% for card in card_list %}
     <div id="card">
         <p>A side: {{ card.a_side }}</p>
         <p>B side: {{ card.b_side }}</p>
     </div>
+    <button id="demo" cardId="{{ card._id }}">Delete</button>
+    {% endfor %}
+
+
 
     <script src="{{ url_for('static', path='/script.js') }}"></script>
 </body>
