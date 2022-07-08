@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>Item Details</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row my-5">
+            <h3 class="text-center display-4">Create a Job Post</h3>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">A side</label>
+                    <textarea class="form-control" required name="a_side" id="exampleFormControlTextarea1"
+                        rows="3">{{a_side}}</textarea>
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">B side</label>
+                    <textarea class="form-control" required name="b_side" id="exampleFormControlTextarea1"
+                        rows="3">{{b_side}}</textarea>
+
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+
+</html>

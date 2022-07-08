@@ -7,3 +7,4 @@ motor
 python-decouple
 pymongo[srv]
 jinja2
+python-multipart

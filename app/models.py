@@ -7,9 +7,8 @@ T = TypeVar("T")
 
 class Card(BaseModel):
     id: str = None
-    spanish: str
-    chinese: str
-    pinyin: str
+    a_side: str
+    b_side: str
 
 
 class Response(BaseModel):

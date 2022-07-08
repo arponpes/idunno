@@ -17,9 +17,8 @@ class CardRepo:
         id = str(uuid.uuid4())
         _card = {
             "_id": id,
-            "spanish": card.spanish,
-            "chinese": card.chinese,
-            "pinyin": card.pinyin,
+            "a_side": card.a_side,
+            "b_side": card.b_side,
         }
         await db.get_collection("card").insert_one(_card)
 
